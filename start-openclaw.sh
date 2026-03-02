@@ -116,18 +116,18 @@ if [ ! -f "$CONFIG_FILE" ]; then
         AUTH_ARGS="--auth-choice openai-api-key --openai-api-key $OPENAI_API_KEY"
     fi
 
-    if ! openclaw onboard --non-interactive --accept-risk \
+    openclaw onboard --non-interactive --accept-risk \
         --mode local \
         $AUTH_ARGS \
         --gateway-port 18789 \
         --gateway-bind lan \
         --skip-channels \
         --skip-skills \
-        --skip-health; then
+        --skip-health
 
-    echo "Onboard failed but continuing startup..."
+    echo "Onboard finished"
 else
-    echo "Onboard completed"
+    echo "Using existing config"
 fi
 
 # ============================================================
